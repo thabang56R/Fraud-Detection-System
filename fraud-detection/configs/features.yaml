@@ -1,0 +1,55 @@
+features:
+  target: is_fraud
+  id_columns:
+    - transaction_id
+    - customer_id
+    - merchant_id
+
+  raw_numeric:
+    - amount
+
+  raw_categorical:
+    - currency
+    - country
+    - device_type
+    - ip_address
+
+  datetime:
+    timestamp_column: timestamp
+
+  engineered:
+    time:
+      - transaction_hour
+      - transaction_dayofweek
+      - is_weekend
+      - is_night
+
+    velocity:
+      - customer_txn_count_1d
+      - customer_txn_count_7d
+      - customer_txn_count_30d
+      - customer_amount_sum_1d
+      - customer_amount_sum_7d
+      - customer_amount_sum_30d
+
+    customer_behavior:
+      - customer_prev_txn_count
+      - customer_prev_amount_mean
+      - customer_prev_amount_std
+      - customer_amount_deviation
+      - customer_amount_zscore
+      - customer_minutes_since_prev_txn
+
+    merchant_risk:
+      - merchant_prev_txn_count
+      - merchant_prev_fraud_count
+      - merchant_prev_fraud_rate
+      - merchant_prev_amount_mean
+
+    geo_device:
+      - is_foreign_transaction
+      - is_high_amount
+      - is_new_device_for_customer
+
+  thresholds:
+    high_amount: 5000.0

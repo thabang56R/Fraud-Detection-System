@@ -1,0 +1,11 @@
+transaction_id,customer_id,merchant_id,amount,currency,country,device_type,ip_address,timestamp,is_fraud
+txn_0001,cust_001,mrch_001,120.50,ZAR,ZA,mobile,196.10.1.1,2026-03-18 08:15:00,0
+txn_0002,cust_002,mrch_002,9800.00,ZAR,ZA,desktop,196.10.1.2,2026-03-18 08:20:00,1
+txn_0003,cust_001,mrch_003,75.00,ZAR,ZA,mobile,196.10.1.1,2026-03-18 09:05:00,0
+txn_0004,cust_003,mrch_004,15000.00,USD,US,desktop,41.20.10.3,2026-03-18 10:40:00,1
+txn_0005,cust_004,mrch_001,300.00,ZAR,ZA,tablet,102.132.1.4,2026-03-18 11:00:00,0
+txn_0006,cust_005,mrch_005,4550.00,ZAR,ZA,mobile,102.132.1.5,2026-03-18 11:05:00,1
+txn_0007,cust_006,mrch_006,80.00,ZAR,ZA,mobile,102.132.1.6,2026-03-18 11:20:00,0
+txn_0008,cust_002,mrch_002,10200.00,ZAR,ZA,desktop,196.10.1.2,2026-03-18 11:45:00,1
+txn_0009,cust_007,mrch_007,50.00,ZAR,ZA,mobile,197.155.1.7,2026-03-18 12:10:00,0
+txn_0010,cust_008,mrch_008,2500.00,EUR,DE,desktop,85.214.1.8,2026-03-18 12:40:00,0

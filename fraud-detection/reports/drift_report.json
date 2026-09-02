@@ -1,0 +1,156 @@
+{
+  "reference_rows": 5,
+  "current_rows": 5,
+  "numeric_feature_drift": {
+    "amount": {
+      "reference_mean": 7039.1,
+      "current_mean": 1496.0,
+      "reference_std": 5955.761936142176,
+      "current_std": 1781.0850625391254
+    },
+    "is_fraud": {
+      "reference_mean": 0.6,
+      "current_mean": 0.2,
+      "reference_std": 0.48989794855663565,
+      "current_std": 0.4000000000000001
+    },
+    "transaction_hour": {
+      "reference_mean": 9.2,
+      "current_mean": 11.4,
+      "reference_std": 1.16619037896906,
+      "current_std": 0.48989794855663565
+    },
+    "transaction_dayofweek": {
+      "reference_mean": 2.0,
+      "current_mean": 2.0,
+      "reference_std": 0.0,
+      "current_std": 0.0
+    },
+    "is_weekend": {
+      "reference_mean": 0.0,
+      "current_mean": 0.0,
+      "reference_std": 0.0,
+      "current_std": 0.0
+    },
+    "is_night": {
+      "reference_mean": 0.0,
+      "current_mean": 0.0,
+      "reference_std": 0.0,
+      "current_std": 0.0
+    },
+    "customer_txn_count_1d": {
+      "reference_mean": 0.4,
+      "current_mean": 0.0,
+      "reference_std": 0.48989794855663565,
+      "current_std": 0.0
+    },
+    "customer_amount_sum_1d": {
+      "reference_mean": 1984.1,
+      "current_mean": 0.0,
+      "reference_std": 3908.2286575890103,
+      "current_std": 0.0
+    },
+    "customer_txn_count_7d": {
+      "reference_mean": 0.4,
+      "current_mean": 0.0,
+      "reference_std": 0.48989794855663565,
+      "current_std": 0.0
+    },
+    "customer_amount_sum_7d": {
+      "reference_mean": 1984.1,
+      "current_mean": 0.0,
+      "reference_std": 3908.2286575890103,
+      "current_std": 0.0
+    },
+    "customer_txn_count_30d": {
+      "reference_mean": 0.4,
+      "current_mean": 0.0,
+      "reference_std": 0.48989794855663565,
+      "current_std": 0.0
+    },
+    "customer_amount_sum_30d": {
+      "reference_mean": 1984.1,
+      "current_mean": 0.0,
+      "reference_std": 3908.2286575890103,
+      "current_std": 0.0
+    },
+    "customer_prev_txn_count": {
+      "reference_mean": 0.4,
+      "current_mean": 0.0,
+      "reference_std": 0.48989794855663565,
+      "current_std": 0.0
+    },
+    "customer_prev_amount_mean": {
+      "reference_mean": 4003.65,
+      "current_mean": 3996.0,
+      "reference_std": 4814.935278900434,
+      "current_std": 5761.272776045238
+    },
+    "customer_prev_amount_std": {
+      "reference_mean": 63.003214203721384,
+      "current_mean": 0.0,
+      "reference_std": 110.62377682939596,
+      "current_std": 0.0
+    },
+    "customer_amount_deviation": {
+      "reference_mean": 3035.45,
+      "current_mean": -2500.0,
+      "reference_std": 3827.2826404643806,
+      "current_std": 6765.896836340324
+    },
+    "customer_amount_zscore": {
+      "reference_mean": 63.847857139050824,
+      "current_mean": 0.0,
+      "reference_std": 119.05390714979468,
+      "current_std": 0.0
+    },
+    "customer_minutes_since_prev_txn": {
+      "reference_mean": 50.4,
+      "current_mean": -1.0,
+      "reference_std": 79.78370761001271,
+      "current_std": 0.0
+    },
+    "merchant_prev_txn_count": {
+      "reference_mean": 0.2,
+      "current_mean": 0.2,
+      "reference_std": 0.4,
+      "current_std": 0.4000000000000001
+    },
+    "merchant_prev_fraud_count": {
+      "reference_mean": 0.6,
+      "current_mean": 0.4,
+      "reference_std": 0.7999999999999999,
+      "current_std": 0.48989794855663565
+    },
+    "merchant_prev_fraud_rate": {
+      "reference_mean": 0.2,
+      "current_mean": 0.0,
+      "reference_std": 0.4,
+      "current_std": 0.0
+    },
+    "merchant_prev_amount_mean": {
+      "reference_mean": 4017.05,
+      "current_mean": 3960.1,
+      "reference_std": 4804.297587577189,
+      "current_std": 5784.703280203747
+    },
+    "is_foreign_transaction": {
+      "reference_mean": 0.0,
+      "current_mean": 0.0,
+      "reference_std": 0.0,
+      "current_std": 0.0
+    },
+    "is_high_amount": {
+      "reference_mean": 0.6,
+      "current_mean": 0.0,
+      "reference_std": 0.48989794855663565,
+      "current_std": 0.0
+    },
+    "is_new_device_for_customer": {
+      "reference_mean": 0.6,
+      "current_mean": 1.0,
+      "reference_std": 0.48989794855663565,
+      "current_std": 0.0
+    }
+  }
+}

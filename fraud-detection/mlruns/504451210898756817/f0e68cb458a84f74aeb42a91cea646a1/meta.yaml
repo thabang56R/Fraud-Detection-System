@@ -1,0 +1,14 @@
+artifact_uri: file:C:/Users/Thabang Rakeng/OneDrive/Desktop/FinShield/fraud-detection/mlruns/504451210898756817/f0e68cb458a84f74aeb42a91cea646a1/artifacts
+end_time: 1774500777897
+entry_point_name: ''
+experiment_id: '504451210898756817'
+lifecycle_stage: active
+run_id: f0e68cb458a84f74aeb42a91cea646a1
+run_name: finshield_training_run
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1774500770538
+status: 3
+tags: []
+user_id: Thabang Rakeng

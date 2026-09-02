@@ -1,0 +1,133 @@
+{
+  "baseline_model": "logistic_regression",
+  "primary_model": "xgboost",
+  "anomaly_model": "isolation_forest",
+  "target": "is_fraud",
+  "threshold": 0.5,
+  "feature_columns": [
+    "amount",
+    "transaction_hour",
+    "transaction_dayofweek",
+    "is_weekend",
+    "is_night",
+    "customer_txn_count_1d",
+    "customer_txn_count_7d",
+    "customer_txn_count_30d",
+    "customer_amount_sum_1d",
+    "customer_amount_sum_7d",
+    "customer_amount_sum_30d",
+    "customer_prev_txn_count",
+    "customer_prev_amount_mean",
+    "customer_prev_amount_std",
+    "customer_amount_deviation",
+    "customer_amount_zscore",
+    "customer_minutes_since_prev_txn",
+    "merchant_prev_txn_count",
+    "merchant_prev_fraud_count",
+    "merchant_prev_fraud_rate",
+    "merchant_prev_amount_mean",
+    "is_foreign_transaction",
+    "is_high_amount",
+    "is_new_device_for_customer",
+    "currency",
+    "country",
+    "device_type",
+    "ip_address"
+  ],
+  "baseline_metrics": {
+    "accuracy": 1.0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "roc_auc": 0.0,
+    "pr_auc": 0.0,
+    "confusion_matrix": [
+      [
+        2,
+        0
+      ],
+      [
+        0,
+        0
+      ]
+    ],
+    "classification_report": {
+      "0": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 2.0
+      },
+      "1": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 0.0
+      },
+      "accuracy": 1.0,
+      "macro avg": {
+        "precision": 0.5,
+        "recall": 0.5,
+        "f1-score": 0.5,
+        "support": 2.0
+      },
+      "weighted avg": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 2.0
+      }
+    },
+    "threshold": 0.5,
+    "support": 2,
+    "positive_rate_actual": 0.0,
+    "positive_rate_predicted": 0.0
+  },
+  "primary_metrics": {
+    "accuracy": 1.0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "roc_auc": 0.0,
+    "pr_auc": 0.0,
+    "confusion_matrix": [
+      [
+        2,
+        0
+      ],
+      [
+        0,
+        0
+      ]
+    ],
+    "classification_report": {
+      "0": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 2.0
+      },
+      "1": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 0.0
+      },
+      "accuracy": 1.0,
+      "macro avg": {
+        "precision": 0.5,
+        "recall": 0.5,
+        "f1-score": 0.5,
+        "support": 2.0
+      },
+      "weighted avg": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 2.0
+      }
+    },
+    "threshold": 0.5,
+    "support": 2,
+    "positive_rate_actual": 0.0,
+    "positive_rate_predicted": 0.0
+  }
+}

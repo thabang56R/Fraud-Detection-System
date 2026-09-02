@@ -1,0 +1,42 @@
+rules:
+  - name: high_amount
+    description: Transaction amount exceeds the configured high-amount threshold
+    condition: "is_high_amount == 1"
+    weight: 20
+    action: "review"
+
+  - name: foreign_high_amount
+    description: Foreign transaction combined with a high amount
+    condition: "is_foreign_transaction == 1 and is_high_amount == 1"
+    weight: 35
+    action: "block"
+
+  - name: new_device_high_amount
+    description: New customer device used for a high-amount transaction
+    condition: "is_new_device_for_customer == 1 and is_high_amount == 1"
+    weight: 25
+    action: "review"
+
+  - name: rapid_repeat_activity
+    description: Customer shows unusually rapid repeat activity
+    condition: "customer_minutes_since_prev_txn >= 0 and customer_minutes_since_prev_txn < 10 and customer_txn_count_1d >= 3"
+    weight: 30
+    action: "review"
+
+  - name: customer_amount_spike
+    description: Customer transaction amount is far above historical norm
+    condition: "customer_prev_txn_count >= 2 and customer_amount_zscore > 2.5"
+    weight: 25
+    action: "review"
+
+  - name: merchant_fraud_hotspot
+    description: Merchant has elevated prior fraud rate with enough history
+    condition: "merchant_prev_txn_count >= 3 and merchant_prev_fraud_rate >= 0.4"
+    weight: 30
+    action: "review"
+
+  - name: severe_compound_risk
+    description: Multiple strong fraud indicators triggered together
+    condition: "is_high_amount == 1 and merchant_prev_fraud_rate >= 0.4 and is_new_device_for_customer == 1"
+    weight: 40
+    action: "block"
