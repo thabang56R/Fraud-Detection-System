@@ -1,6 +1,6 @@
-export function reportLovableError(error, context = {}) {
+export function reportError(error, context = {}) {
   if (typeof window === "undefined") return;
-  window.__lovableEvents?.captureException?.(
+  window.__Events?.captureException?.(
     error,
     {
       source: "react_error_boundary",
@@ -13,8 +13,7 @@ export function reportLovableError(error, context = {}) {
       severity: "error",
     },
   );
-  // Prod React does not rethrow boundary-caught errors to window.onerror, so the
-  // editor's telemetry never sees them. Forward to lovable.js's reporting hook.
+  
   const message =
     error instanceof Response
       ? `Response ${error.status}${error.url ? ` at ${error.url}` : ""}`

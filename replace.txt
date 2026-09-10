@@ -1,2 +1,0 @@
-lovable-dev[bot] <lovable@example.com>=Thabang Rakeng <your@email.com>
-
