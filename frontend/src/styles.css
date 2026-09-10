@@ -1,0 +1,144 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+/*
+ * FinShield design system — single dark "control room" theme.
+ * All colors are oklch tokens. Never hardcode colors in components.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-elevated: var(--elevated);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-safe: var(--safe);
+  --color-warn: var(--warn);
+  --color-danger: var(--danger);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+}
+
+:root {
+  --radius: 0.5rem;
+  --background: oklch(0.16 0.024 258);
+  --foreground: oklch(0.96 0.006 250);
+  --card: oklch(0.204 0.026 259);
+  --card-foreground: oklch(0.96 0.006 250);
+  --elevated: oklch(0.245 0.028 259);
+  --primary: oklch(0.79 0.14 190);
+  --primary-foreground: oklch(0.17 0.03 240);
+  --secondary: oklch(0.28 0.03 258);
+  --secondary-foreground: oklch(0.93 0.01 250);
+  --muted: oklch(0.26 0.026 258);
+  --muted-foreground: oklch(0.7 0.024 255);
+  --accent: oklch(0.72 0.16 300);
+  --accent-foreground: oklch(0.17 0.03 240);
+  --safe: oklch(0.78 0.16 158);
+  --warn: oklch(0.82 0.16 78);
+  --danger: oklch(0.66 0.21 22);
+  --border: oklch(0.32 0.028 258);
+  --input: oklch(0.28 0.028 258);
+  --ring: oklch(0.79 0.14 190);
+
+  --gradient-signal: linear-gradient(120deg, var(--primary), var(--accent));
+  --gradient-surface: linear-gradient(
+    160deg,
+    color-mix(in oklab, var(--primary) 8%, var(--card)),
+    var(--card) 55%
+  );
+  --shadow-panel: 0 24px 60px -30px oklch(0 0 0 / 0.8);
+  --shadow-glow: 0 0 0 1px color-mix(in oklab, var(--primary) 35%, transparent),
+    0 18px 50px -24px color-mix(in oklab, var(--primary) 55%, transparent);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    background-image: radial-gradient(
+        70rem 40rem at 12% -10%,
+        color-mix(in oklab, var(--primary) 14%, transparent),
+        transparent 70%
+      ),
+      radial-gradient(
+        60rem 36rem at 92% 0%,
+        color-mix(in oklab, var(--accent) 12%, transparent),
+        transparent 70%
+      );
+    background-attachment: fixed;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+}
+
+@utility grid-mesh {
+  background-image: linear-gradient(
+      to right,
+      color-mix(in oklab, var(--border) 60%, transparent) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      color-mix(in oklab, var(--border) 60%, transparent) 1px,
+      transparent 1px
+    );
+  background-size: 44px 44px;
+  mask-image: radial-gradient(60% 60% at 50% 20%, black, transparent 100%);
+}
+
+@utility panel {
+  background: var(--gradient-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-panel);
+}
+
+@utility text-signal {
+  background: var(--gradient-signal);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility btn-signal {
+  background: var(--gradient-signal);
+  color: var(--color-primary-foreground);
+  box-shadow: var(--shadow-glow);
+}
+
+@utility mono-num {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
