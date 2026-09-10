@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
 from apps.monitoring.monitor import run_monitoring
@@ -16,6 +17,20 @@ app = FastAPI(
     title="FinShield Fraud Detection API",
     version="0.7.0",
     description="Production-style fraud detection platform for fintech",
+)
+
+# ✅ Enable CORS for frontend dev server
+origins = [
+    "http://localhost:8081",   # React/Vite dev server
+    "http://127.0.0.1:8081",   # alternative form
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,       # or ["*"] for all origins (dev only)
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 
@@ -192,3 +207,4 @@ def score_with_hybrid(payload: TransactionPayload):
         "features": features,
         "result": result,
     }
+
