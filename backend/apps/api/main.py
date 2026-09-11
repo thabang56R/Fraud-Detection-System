@@ -1,6 +1,7 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
+import os
 
 from apps.monitoring.monitor import run_monitoring
 from features.realtime_features import build_realtime_features
@@ -19,10 +20,12 @@ app = FastAPI(
     description="Production-style fraud detection platform for fintech",
 )
 
-# ✅ Enable CORS for frontend dev server
+# ✅ Enable CORS for frontend dev servers
 origins = [
-    "http://localhost:8081",   # React/Vite dev server
-    "http://127.0.0.1:8081",   # alternative form
+    "http://localhost:8080",
+    "http://127.0.0.1:8080",
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
 ]
 
 app.add_middleware(
@@ -93,118 +96,84 @@ def get_monitoring_report():
     return run_monitoring()
 
 
+def load_history_csv():
+    """Helper to safely load the sample CSV file."""
+    csv_path = RAW_DATA_DIR / "transactions_sample.csv"
+    if not os.path.exists(csv_path):
+        raise HTTPException(
+            status_code=500,
+            detail=f"Sample CSV file not found at {csv_path}. Please create transactions_sample.csv in RAW_DATA_DIR."
+        )
+    history_df = read_csv_data(str(csv_path))
+    return basic_cleaning(history_df)
+
+
 @app.post("/features/realtime")
 def preview_realtime_features(payload: TransactionPayload):
-    history_df = read_csv_data(str(RAW_DATA_DIR / "transactions_sample.csv"))
-    history_df = basic_cleaning(history_df)
-
+    history_df = load_history_csv()
     features = build_realtime_features(
         payload=payload.model_dump(),
         customer_history=history_df,
         merchant_history=history_df,
     )
-
-    return {
-        "message": "Realtime features generated successfully",
-        "features": features,
-    }
+    return {"message": "Realtime features generated successfully", "features": features}
 
 
 @app.post("/rules/evaluate")
 def evaluate_rules(payload: TransactionPayload):
-    history_df = read_csv_data(str(RAW_DATA_DIR / "transactions_sample.csv"))
-    history_df = basic_cleaning(history_df)
-
+    history_df = load_history_csv()
     features = build_realtime_features(
         payload=payload.model_dump(),
         customer_history=history_df,
         merchant_history=history_df,
     )
-
     rules_result = get_risk_engine().rules_engine.evaluate(features)
-
-    return {
-        "message": "Rules evaluated successfully",
-        "features": features,
-        "rules_result": rules_result,
-    }
+    return {"message": "Rules evaluated successfully", "features": features, "rules_result": rules_result}
 
 
 @app.post("/score/rules")
 def score_with_rules(payload: TransactionPayload):
-    history_df = read_csv_data(str(RAW_DATA_DIR / "transactions_sample.csv"))
-    history_df = basic_cleaning(history_df)
-
+    history_df = load_history_csv()
     features = build_realtime_features(
         payload=payload.model_dump(),
         customer_history=history_df,
         merchant_history=history_df,
     )
-
     result = get_risk_engine().score(features)
-
-    return {
-        "message": "Rule-based fraud score generated successfully",
-        "result": result,
-    }
+    return {"message": "Rule-based fraud score generated successfully", "result": result}
 
 
 @app.post("/score/model")
 def score_with_model(payload: TransactionPayload):
-    history_df = read_csv_data(str(RAW_DATA_DIR / "transactions_sample.csv"))
-    history_df = basic_cleaning(history_df)
-
+    history_df = load_history_csv()
     features = build_realtime_features(
         payload=payload.model_dump(),
         customer_history=history_df,
         merchant_history=history_df,
     )
-
     result = get_model_service().predict(features)
-
-    return {
-        "message": "Supervised model fraud score generated successfully",
-        "features": features,
-        "result": result,
-    }
+    return {"message": "Supervised model fraud score generated successfully", "features": features, "result": result}
 
 
 @app.post("/score/anomaly")
 def score_with_anomaly(payload: TransactionPayload):
-    history_df = read_csv_data(str(RAW_DATA_DIR / "transactions_sample.csv"))
-    history_df = basic_cleaning(history_df)
-
+    history_df = load_history_csv()
     features = build_realtime_features(
         payload=payload.model_dump(),
         customer_history=history_df,
         merchant_history=history_df,
     )
-
     result = get_anomaly_service().predict(features)
-
-    return {
-        "message": "Anomaly score generated successfully",
-        "features": features,
-        "result": result,
-    }
+    return {"message": "Anomaly score generated successfully", "features": features, "result": result}
 
 
 @app.post("/score/hybrid")
 def score_with_hybrid(payload: TransactionPayload):
-    history_df = read_csv_data(str(RAW_DATA_DIR / "transactions_sample.csv"))
-    history_df = basic_cleaning(history_df)
-
+    history_df = load_history_csv()
     features = build_realtime_features(
         payload=payload.model_dump(),
         customer_history=history_df,
         merchant_history=history_df,
     )
-
     result = get_hybrid_engine().score(features)
-
-    return {
-        "message": "Hybrid fraud score generated successfully",
-        "features": features,
-        "result": result,
-    }
-
+    return {"message": "Hybrid fraud score generated successfully", "features": features, "result": result}
