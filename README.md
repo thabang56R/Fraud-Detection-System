@@ -175,8 +175,8 @@ final_score =
 ```bash
 pip install -e .[dev]
 pytest
-python pipelines/training_pipeline.py
-python -m uvicorn apps.api.main:app --reload
+py pipelines/training_pipeline.py
+py -m uvicorn apps.api.main:app --reload
 
 👉 Open: http://127.0.0.1:8000/doc
 
