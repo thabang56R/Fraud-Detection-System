@@ -1,7 +1,16 @@
 # 🛡️ FinShield Fraud Detection Platform  
 
-**🐍 Python • ⚡ FastAPI • 📊 Scikit‑Learn • 🚀 XGBoost • 📈 MLflow • 🧪 Pytest • 🐳 Docker • 🔄 CI/CD • 🎨 React Frontend**
+![Python](https://img.shields.io/badge/Python-3.13-blue?logo=python)
+![FastAPI](https://img.shields.io/badge/FastAPI-API-green?logo=fastapi)
+![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-ML-orange?logo=scikitlearn)
+![XGBoost](https://img.shields.io/badge/XGBoost-Classifier-red)
+![MLflow](https://img.shields.io/badge/MLflow-Experiment%20Tracking-blue)
+![Pytest](https://img.shields.io/badge/Pytest-Tested-success?logo=pytest)
+![Docker](https://img.shields.io/badge/Docker-Containerized-2496ED?logo=docker)
+![CI](https://img.shields.io/badge/CI-GitHub%20Actions-black?logo=githubactions)
+![Status](https://img.shields.io/badge/Status-Production--Style%20Learning%20Project-purple)
 
+> 🚀 A production-style fraud detection platform for fintech use cases, built with **Python**, **FastAPI**, **machine learning**, **rules engines**, **anomaly detection**, and **MLOps**.
 ---
 
 ## 🌐 OVERVIEW  
