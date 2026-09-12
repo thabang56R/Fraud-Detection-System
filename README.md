@@ -1,7 +1,7 @@
 # 🛡️ FinShield Fraud Detection Platform  
 
 ![Python](https://img.shields.io/badge/Python-3.13-blue?logo=python)
-![Python](https://img.shields.io/badge/typescript-maroon?logo=typescript)
+![Python](https://img.shields.io/badge/typescript-frontend-maroon?logo=typescript)
 ![FastAPI](https://img.shields.io/badge/FastAPI-API-green?logo=fastapi)
 ![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-ML-orange?logo=scikitlearn)
 ![XGBoost](https://img.shields.io/badge/XGBoost-Classifier-red)
