@@ -1,4 +1,4 @@
-# 🛡️ FinShield Fraud Detection Platform  
+# 🛡️ FinShield Fraud Detection System  
 
 ![Python](https://img.shields.io/badge/Python-3.13-blue?logo=python)
 ![Python](https://img.shields.io/badge/typescript-frontend-maroon?logo=typescript)
